@@ -11,7 +11,7 @@ local scene = storyboard.newScene()
 -- BEGINNING OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
 
-local image, text1, text2, text3
+local image, text1, text2, text3, rect
 
 local function onSceneTouch( self, event )
 	if event.phase == "began" then
@@ -30,6 +30,14 @@ function scene:createScene( event )
 	
 	image = display.newImage( "bg2.jpg" )
 	screenGroup:insert( image )
+
+	rect = display.newRect(0, 0, 100, 100)
+	rect:setFillColor(255, 0, 0)
+	rect:setStrokeColor(0, 255, 0)
+	rect.strokeWidth = 3
+	rect.x = 0
+	rect.y = 0
+	screenGroup:insert( rect )	
 	
 	image.touch = onSceneTouch
 	

@@ -11,13 +11,13 @@ local scene = storyboard.newScene()
 -- BEGINNING OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
 
-local image, text1, text2, text3
+local image, text1, text2, text3, largeRect
 
 -- Touch event listener for background image
 local function onSceneTouch( self, event )
 	if event.phase == "began" then
 		
-		storyboard.gotoScene( "scene2", "fade", 400  )
+		storyboard.gotoScene( "scene2", "fromRight", 400  )
 		
 		return true
 	end
@@ -30,6 +30,10 @@ function scene:createScene( event )
 	
 	image = display.newImage( "bg.jpg" )
 	screenGroup:insert( image )
+
+	largeRect = display.newRect(0, 0, display.contentWidth * 2, display.contentHeight * 2)
+	largeRect:setFillColor(0, 255, 0)
+	screenGroup:insert( largeRect )	
 	
 	image.touch = onSceneTouch
 	
